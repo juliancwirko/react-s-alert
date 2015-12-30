@@ -4,9 +4,14 @@
   "description": "Alerts / Notifications for React with rich configuration options",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/juliancwirko/react-s-alert.git"
   },
+  "author": "Julian Ćwirko",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juliancwirko/react-s-alert/issues"
+  },
+  "homepage": "https://github.com/juliancwirko/react-s-alert",
   "options": {
     "mocha": "--require scripts/mocha_runner lib/**/__tests__/**/*.js"
   },
