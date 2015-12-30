@@ -1,0 +1,38 @@
+/* Scale */
+
+.s-alert-effect-scale a {
+    color: #fff;
+}
+
+.s-alert-effect-scale a:hover,
+.s-alert-effect-scale a:focus {
+    color: #fff;
+}
+
+.s-alert-effect-scale .s-alert-close::before,
+.s-alert-effect-scale .s-alert-close::after {
+    background: #fff;
+}
+
+.s-alert-effect-scale .s-alert-close:hover::before,
+.s-alert-effect-scale .s-alert-close:hover::after {
+    background: #fff;
+}
+
+.s-alert-effect-scale.s-alert-show,
+.s-alert-effect-scale.s-alert-hide {
+    -webkit-animation-name: animScale;
+    animation-name: animScale;
+    -webkit-animation-duration: 0.25s;
+    animation-duration: 0.25s;
+}
+
+@-webkit-keyframes animScale {
+    0% { opacity: 0; -webkit-transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); }
+    100% { opacity: 1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); }
+}
+
+@keyframes animScale {
+    0% { opacity: 0; -webkit-transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); transform: translate3d(0,40px,0) scale3d(0.1,0.6,1); }
+    100% { opacity: 1; -webkit-transform: translate3d(0,0,0) scale3d(1,1,1); transform: translate3d(0,0,0) scale3d(1,1,1); }
+}

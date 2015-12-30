@@ -1,0 +1,87 @@
+/* Flip */
+
+.s-alert-effect-flip {
+    padding: 1.5em;
+    backface-visibility: hidden;
+}
+
+.s-alert-bottom-left.s-alert-effect-flip,
+.s-alert-bottom-right.s-alert-effect-flip,
+.s-alert-bottom.s-alert-effect-flip {
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+.s-alert-top-left.s-alert-effect-flip,
+.s-alert-top-right.s-alert-effect-flip,
+.s-alert-top.s-alert-effect-flip {
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+}
+
+.s-alert-effect-flip .s-alert-close::before,
+.s-alert-effect-flip .s-alert-close::after {
+    background: #fff;
+}
+
+.s-alert-effect-flip .s-alert-close:hover::before,
+.s-alert-effect-flip .s-alert-close:hover::after {
+    background: #fff;
+}
+
+.s-alert-bottom-right.s-alert-effect-flip.s-alert-show,
+.s-alert-bottom-left.s-alert-effect-flip.s-alert-show,
+.s-alert-bottom-right.s-alert-effect-flip.s-alert-hide,
+.s-alert-bottom-left.s-alert-effect-flip.s-alert-hide,
+.s-alert-bottom.s-alert-effect-flip.s-alert-hide,
+.s-alert-bottom.s-alert-effect-flip.s-alert-show {
+    -webkit-animation-name: animFlipFrontBottom;
+    animation-name: animFlipFrontBottom;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+}
+
+.s-alert-bottom-right.s-alert-effect-flip.s-alert-hide,
+.s-alert-bottom-left.s-alert-effect-flip.s-alert-hide,
+.s-alert-bottom.s-alert-effect-flip.s-alert-hide {
+    -webkit-animation-name: animFlipFrontBottom;
+    animation-name: animFlipFrontBottom;
+}
+
+.s-alert-top-right.s-alert-effect-flip.s-alert-show,
+.s-alert-top-left.s-alert-effect-flip.s-alert-show,
+.s-alert-top-right.s-alert-effect-flip.s-alert-hide,
+.s-alert-top-left.s-alert-effect-flip.s-alert-hide,
+.s-alert-top.s-alert-effect-flip.s-alert-hide,
+.s-alert-top.s-alert-effect-flip.s-alert-show {
+    -webkit-animation-name: animFlipFrontTop;
+    animation-name: animFlipFrontTop;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+}
+
+.s-alert-top-right.s-alert-effect-flip.s-alert-hide,
+.s-alert-top-left.s-alert-effect-flip.s-alert-hide,
+.s-alert-top.s-alert-effect-flip.s-alert-hide {
+    -webkit-animation-name: animFlipFrontTop;
+    animation-name: animFlipFrontTop;
+}
+
+@-webkit-keyframes animFlipFrontTop {
+    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,-90deg); }
+    100% { -webkit-transform: perspective(1000px); }
+}
+
+@keyframes animFlipFrontTop {
+    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,-90deg); transform: perspective(1000px) rotate3d(1,0,0,-90deg); }
+    100% { -webkit-transform: perspective(1000px); transform: perspective(1000px); }
+}
+
+@-webkit-keyframes animFlipFrontBottom {
+    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,90deg); }
+    100% { -webkit-transform: perspective(1000px); }
+}
+
+@keyframes animFlipFrontBottom {
+    0% { -webkit-transform: perspective(1000px) rotate3d(1,0,0,90deg); transform: perspective(1000px) rotate3d(1,0,0,90deg); }
+    100% { -webkit-transform: perspective(1000px); transform: perspective(1000px); }
+}
