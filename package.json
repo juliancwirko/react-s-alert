@@ -12,6 +12,13 @@
     "url": "https://github.com/juliancwirko/react-s-alert/issues"
   },
   "homepage": "https://github.com/juliancwirko/react-s-alert",
+  "keywords": [
+    "react",
+    "alert",
+    "alerts",
+    "notifications",
+    "errors"
+  ],
   "options": {
     "mocha": "--require scripts/mocha_runner lib/**/__tests__/**/*.js"
   },
