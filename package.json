@@ -1,6 +1,6 @@
 {
   "name": "react-s-alert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Alerts / Notifications for React with rich configuration options",
   "repository": {
     "type": "git",
@@ -13,11 +13,16 @@
   },
   "homepage": "https://github.com/juliancwirko/react-s-alert",
   "keywords": [
+    "react-component",
     "react",
     "alert",
     "alerts",
+    "react-alert",
+    "react-alerts",
     "notifications",
-    "errors"
+    "react-notifications",
+    "errors",
+    "react-errors"
   ],
   "options": {
     "mocha": "--require scripts/mocha_runner lib/**/__tests__/**/*.js"
