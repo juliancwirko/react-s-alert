@@ -101,7 +101,7 @@ var SAlert = (function (_React$Component) {
                 }
                 _this2.setState({ dataRight: storeStateRight });
             };
-            _sAlertStore2.default.subscribe(addToStoreRight);
+            this.unsubStoreRight = _sAlertStore2.default.subscribe(addToStoreRight);
 
             var addToStoreLeft = function addToStoreLeft() {
                 var length = undefined;
@@ -114,7 +114,7 @@ var SAlert = (function (_React$Component) {
                 }
                 _this2.setState({ dataLeft: storeStateLeft });
             };
-            _sAlertStore2.default.subscribe(addToStoreLeft);
+            this.unsubStoreLeft = _sAlertStore2.default.subscribe(addToStoreLeft);
 
             var addToStoreTop = function addToStoreTop() {
                 var length = undefined;
@@ -127,7 +127,7 @@ var SAlert = (function (_React$Component) {
                 }
                 _this2.setState({ dataTop: storeStateTop });
             };
-            _sAlertStore2.default.subscribe(addToStoreTop);
+            this.unsubStoreTop = _sAlertStore2.default.subscribe(addToStoreTop);
 
             var addToStoreBottom = function addToStoreBottom() {
                 var length = undefined;
@@ -140,7 +140,7 @@ var SAlert = (function (_React$Component) {
                 }
                 _this2.setState({ dataBottom: storeStateBottom });
             };
-            _sAlertStore2.default.subscribe(addToStoreBottom);
+            this.unsubStoreBottom = _sAlertStore2.default.subscribe(addToStoreBottom);
 
             // set up global config from global SAlert props
             // only stuff needed for getAlertData
@@ -154,6 +154,14 @@ var SAlert = (function (_React$Component) {
                 position: this.props.position
             };
             _sAlertTools2.default.setGlobalConfig(globalConfig);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.unsubStoreTop();
+            this.unsubStoreBottom();
+            this.unsubStoreLeft();
+            this.unsubStoreRight();
         }
     }, {
         key: 'render',

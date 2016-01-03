@@ -40,7 +40,7 @@ var sAlertTools = {
 
         for (i = 0; i < attributes.length; i++) {
             entry = attributes[i].split(':');
-            result[entry.splice(0, 1)[0]] = entry.join(':');
+            result[entry.splice(0, 1)[0].trim()] = entry.join(':').trim();
         }
         return result;
     },

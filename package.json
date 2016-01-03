@@ -38,7 +38,8 @@
     "eslint-plugin-react": "3.13.x",
     "jsdom": "7.x.x",
     "mocha": "2.x.x",
-    "nodemon": "1.7.x"
+    "nodemon": "1.7.x",
+    "react-addons-test-utils": "^0.14.5"
   },
   "dependencies": {
     "react": "~0.14.3",
