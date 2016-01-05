@@ -332,7 +332,7 @@ In global config:
 <Alert html={true} />
 ```
 
-Possible timeout values:
+Possible 'html' values:
 
 - **true**
 - **false**
@@ -355,7 +355,7 @@ In global config:
 <Alert offset={150} />
 ```
 
-Possible timeout values:
+Possible offset values:
 
 - **(Number - px)**
 
@@ -386,10 +386,10 @@ In global config:
 or just one for all:
 
 ```javascript
-<Alert beep={} />
+<Alert beep='/path-to-audio/file.mp3' />
 ```
 
-Possible beep values:
+Possible 'beep' values:
 
 - **(String - audio file path)** (one audio file for all alerts)
 - **(Object)**
@@ -415,7 +415,7 @@ In global config:
 <Alert onShow={this.handleOnShow} />
 ```
 
-Possible timeout values:
+Possible 'onShow' values:
 
 - **(Function)**
 
@@ -439,7 +439,7 @@ In global config:
 <Alert onClose={this.handleOnClose} />
 ```
 
-Possible timeout values:
+Possible 'onClose' values:
 
 - **(Function)**
 
@@ -463,7 +463,7 @@ Alert.success('Message...', {
 });
 ```
 
-Possible customFields values:
+Possible 'customFields' values:
 
 - **(Object)**
 
