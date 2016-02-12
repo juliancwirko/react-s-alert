@@ -72,10 +72,10 @@ var SAlertContent = (function (_React$Component) {
                 closingTimeout = setTimeout(function () {
                     currentAlertElem.classList.add('s-alert-hide');
                 }, 100);
-                currentAlertElem.removeEventListener('webkitAnimationEnd');
-                currentAlertElem.removeEventListener('animationend');
-                currentAlertElem.addEventListener('webkitAnimationEnd', animationClose);
-                currentAlertElem.addEventListener('animationend', animationClose);
+                currentAlertElem.removeEventListener('webkitAnimationEnd', animationClose, false);
+                currentAlertElem.removeEventListener('animationend', animationClose, false);
+                currentAlertElem.addEventListener('webkitAnimationEnd', animationClose, false);
+                currentAlertElem.addEventListener('animationend', animationClose, false);
             }
             // stop audio when closing
             this.alertAudio && this.alertAudio.load();
