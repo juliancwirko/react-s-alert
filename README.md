@@ -557,6 +557,11 @@ If you want to transpile from ES2015 to ES5:
 npm run prepublish
 ```
 
+## Also check out
+
+- [React project boilerplate with Webpack, HMR, React Router](https://github.com/juliancwirko/react-boilerplate)
+- [Boilerplate for creating React Npm packages with ES2015](https://github.com/juliancwirko/react-npm-boilerplate)
+
 ## License
 
 MIT
