@@ -34,7 +34,7 @@ var Alert = require('react-s-alert');
 
 ### 3. Import (or copy) CSS files
 
-All you need to do is to import (or copy) default CSS file and some or all CSS files with effects which you want to use. Default CSS file is mandatory. With Webpack you could do something like:
+All you need to do is to import (or copy) a default CSS file and some or all CSS files with effects which you want to use. A default CSS file is mandatory. With Webpack you could do something like:
 
 With ES2015:
 ```javascript
@@ -66,13 +66,13 @@ require('react-s-alert/dist/s-alert-css-effects/jelly.css');
 require('react-s-alert/dist/s-alert-css-effects/stackslide.css');
 ```
 
-You can also copy the files and include it in other way in your app. It depends on your workflow.
+You can also copy the files and include it another way in your app. It depends on your workflow.
 
 **If you are using CSS Modules for now you need to import these files globally.** (You can check the demo website Webpack config file).
 
 ### 4. Place sAlert component in you main app component
 
-You need to place main sAlert container. The best place for it is at the end of your main app component. For Example:
+You need to place the main sAlert container. The best place for it is at the end of your main app component. For Example:
 
 ```javascript
 import React from 'react';
@@ -114,7 +114,7 @@ Methods which you can use:
 - **Alert.close(alertId)**
 - **Alert.closeAll()**
 
-sAlert methods will return already created alertId.
+sAlert methods will return the already created alertId.
 
 Example usage:
 ```javascript
@@ -188,7 +188,7 @@ With sAlert you can place your configuration as a global config in the main sAle
 <Alert stack={{limit: 3}} html={true} />
 ```
 
-You can also overwrite these global settings in the particular method call. For Example here we will overwrite the global settings for 'html' in our error alert call:
+You can also overwrite these global settings in the particular method call. For example, here we will overwrite the global settings for 'html' in our error alert call:
 
 ```javascript
 Alert.error('Error message...', {
@@ -223,7 +223,7 @@ or
 ```
 
 ##### 2. `contentTemplate`
-You can prepare your own content template even with additional fields, you will read about it later.
+You can prepare your own content template even with additional fields (More details can be found later on in this README.)
 
 Examples:
 
@@ -361,7 +361,7 @@ Possible offset values:
 
 ##### 6. `beep`
 
-You can set up your audio 'beeps'. Just configure your audio file path (.mp3 is prefered because it should work in every browser). You can also configure 4 paths for 4 conditions.
+You can set up your audio 'beeps'. Just configure your audio file path. (.mp3 files should work in every browser.) You can also configure 4 paths for 4 conditions.
 
 **There is no default audio sample in the package.**
 You should use sound samples which you know that you have the right to use it.
@@ -397,7 +397,7 @@ Possible 'beep' values:
 
 ##### 7. `onShow`
 
-On sAlert show callback function. Will fire the function when the alert appears.
+Execute a callback function. onShow will fire the function when the alert appears.
 
 Example:
 
@@ -421,7 +421,7 @@ Possible 'onShow' values:
 
 ##### 8. `onClose`
 
-On sAlert show callback function. Will fire the function when the alert is closed.
+Execute a callback function.  Will fire the function when the alert is closed.
 
 Example:
 
@@ -445,7 +445,7 @@ Possible 'onClose' values:
 
 ##### 9. `customFields`
 
-You can pass customFields object for your custom content template component. You need to prepate the component to be able to display customFields values. You'll read more about it below.
+You can pass a customFields object for your custom content template component. You need to prepare the component to be able to display customFields values. You'll read more about it below.
 
 Example:
 
@@ -469,15 +469,15 @@ Possible 'customFields' values:
 
 ## Overwrite content template component
 
-With sAlert you have the possibility to overwrite `SAlertContentTmpl` core component. This is useful when you want to provide some more dynamic data in your alerts or just when you want to rebuild the HTML structure of the alert. This is very useful but not so trivial. I'll try to explain it with the example.
+With sAlert you have the possibility to overwrite the `SAlertContentTmpl` core component. This is useful when you want to provide more dynamic data in your alerts or just when you want to rebuild the HTML structure of the alert. This is very useful, but might not be trivial. Standard sAlerts will take only the message you want to display and some configuration. There will be use cases when you want to display some more dynamic data or just some more HTML structures. 
 
-Standard sAlert will take only the message you want to display and some configuration. There will be use cases when you want to display some more dynamic data or just some more HTML structures. Here is the example what it is possible with this component.
+ I'll try to explain it by example: 
 
-Let's say that we want to have an alert with the additional dynamic data which is the name of the customer and also we want to have a confirmation button which will close the alert.
+Let's say that we want to have an alert with the additional dynamic data. We want the name of the customer, and a confirmation button which will close the alert.
 
 Here is what we could do.
 
-In our main app component we will use sAlert component (see above) with custom content component:
+In our main app component we will use sAlert component (see above) with a custom content component:
 
 ```javascript
 import MyCustomContentTemplate from './MyCustomContentTemplate';
@@ -486,7 +486,7 @@ import MyCustomContentTemplate from './MyCustomContentTemplate';
 (...)
 ```
 
-We have just told our sAlert component that we will use some custom content component instead the core one which is called `SAlertContentTmpl`. You should copy the content of the `SAlertContentTmpl` in your custom one and add your own modifications to it.
+We have just told our sAlert component that we will use a custom content component instead the core one which is called `SAlertContentTmpl`. (You should copy the content of the `SAlertContentTmpl` in your custom one and add your own modifications to it).
 
 For example our `MyCustomContentTemplate` component could look like:
 
