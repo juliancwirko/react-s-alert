@@ -73,22 +73,22 @@ var getAlertData = function getAlertData(sAlertPosition) {
 
     var query = {};
     if (sAlertPosition === 'left') {
-        query = function (item) {
+        query = function query(item) {
             return item.position === 'top-left' || item.position === 'bottom-left' || !item.position && (sAlertGlobalConfig.position === 'top-left' || sAlertGlobalConfig.position === 'bottom-left');
         };
     }
     if (sAlertPosition === 'right') {
-        query = function (item) {
+        query = function query(item) {
             return item.position === 'top-right' || item.position === 'bottom-right' || !item.position && (sAlertGlobalConfig.position === 'top-right' || sAlertGlobalConfig.position === 'bottom-right');
         };
     }
     if (sAlertPosition === 'full-top') {
-        query = function (item) {
+        query = function query(item) {
             return item.position === 'top' || !item.position && sAlertGlobalConfig.position === 'top';
         };
     }
     if (sAlertPosition === 'full-bottom') {
-        query = function (item) {
+        query = function query(item) {
             return item.position === 'bottom' || !item.position && sAlertGlobalConfig.position === 'bottom';
         };
     }

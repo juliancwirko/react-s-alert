@@ -28,6 +28,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
@@ -46,7 +50,7 @@ var _SAlertContentTmpl2 = _interopRequireDefault(_SAlertContentTmpl);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SAlertContent = (function (_React$Component) {
+var SAlertContent = function (_React$Component) {
     (0, _inherits3.default)(SAlertContent, _React$Component);
 
     function SAlertContent(props) {
@@ -85,27 +89,27 @@ var SAlertContent = (function (_React$Component) {
         value: function componentWillMount() {
             var beep = this.props.beep;
             var condition = this.props.condition;
-            if (beep && _.isString(beep)) {
+            if (beep && _lodash2.default.isString(beep)) {
                 this.alertAudio = new Audio(beep);
                 this.alertAudio.load();
                 this.alertAudio.play();
             }
-            if (beep && _.isObject(beep) && condition === 'info') {
+            if (beep && _lodash2.default.isObject(beep) && condition === 'info') {
                 this.alertAudio = new Audio(beep.info);
                 this.alertAudio.load();
                 this.alertAudio.play();
             }
-            if (beep && _.isObject(beep) && condition === 'error') {
+            if (beep && _lodash2.default.isObject(beep) && condition === 'error') {
                 this.alertAudio = new Audio(beep.error);
                 this.alertAudio.load();
                 this.alertAudio.play();
             }
-            if (beep && _.isObject(beep) && condition === 'success') {
+            if (beep && _lodash2.default.isObject(beep) && condition === 'success') {
                 this.alertAudio = new Audio(beep.success);
                 this.alertAudio.load();
                 this.alertAudio.play();
             }
-            if (beep && _.isObject(beep) && condition === 'warning') {
+            if (beep && _lodash2.default.isObject(beep) && condition === 'warning') {
                 this.alertAudio = new Audio(beep.warning);
                 this.alertAudio.load();
                 this.alertAudio.play();
@@ -150,7 +154,7 @@ var SAlertContent = (function (_React$Component) {
         }
     }]);
     return SAlertContent;
-})(_react2.default.Component);
+}(_react2.default.Component);
 
 SAlertContent.propTypes = {
     condition: _react2.default.PropTypes.string.isRequired,

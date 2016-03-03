@@ -30,7 +30,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SAlertContentTmpl = (function (_React$Component) {
+var SAlertContentTmpl = function (_React$Component) {
     (0, _inherits3.default)(SAlertContentTmpl, _React$Component);
 
     function SAlertContentTmpl(props) {
@@ -54,7 +54,7 @@ var SAlertContentTmpl = (function (_React$Component) {
         }
     }]);
     return SAlertContentTmpl;
-})(_react2.default.Component);
+}(_react2.default.Component);
 
 SAlertContentTmpl.propTypes = {
     id: _react2.default.PropTypes.string.isRequired,

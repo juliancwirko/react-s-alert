@@ -63,7 +63,7 @@ var insertFunc = function insertFunc(msg, data, condition) {
     return id;
 };
 
-var SAlert = (function (_React$Component) {
+var SAlert = function (_React$Component) {
     (0, _inherits3.default)(SAlert, _React$Component);
 
     function SAlert(props) {
@@ -245,7 +245,7 @@ var SAlert = (function (_React$Component) {
         }
     }]);
     return SAlert;
-})(_react2.default.Component);
+}(_react2.default.Component);
 
 SAlert.propTypes = {
     message: _react2.default.PropTypes.string,
