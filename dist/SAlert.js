@@ -85,13 +85,13 @@ var SAlert = function (_React$Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            var storeStateLeft = undefined;
-            var storeStateRight = undefined;
-            var storeStateTop = undefined;
-            var storeStateBottom = undefined;
+            var storeStateLeft = void 0;
+            var storeStateRight = void 0;
+            var storeStateTop = void 0;
+            var storeStateBottom = void 0;
 
             var addToStoreRight = function addToStoreRight() {
-                var length = undefined;
+                var length = void 0;
                 storeStateRight = (0, _sAlertDataPrep2.default)('right') || [];
                 length = storeStateRight.length;
                 if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
@@ -104,7 +104,7 @@ var SAlert = function (_React$Component) {
             this.unsubStoreRight = _sAlertStore2.default.subscribe(addToStoreRight);
 
             var addToStoreLeft = function addToStoreLeft() {
-                var length = undefined;
+                var length = void 0;
                 storeStateLeft = (0, _sAlertDataPrep2.default)('left') || [];
                 length = storeStateLeft.length;
                 if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
@@ -117,7 +117,7 @@ var SAlert = function (_React$Component) {
             this.unsubStoreLeft = _sAlertStore2.default.subscribe(addToStoreLeft);
 
             var addToStoreTop = function addToStoreTop() {
-                var length = undefined;
+                var length = void 0;
                 storeStateTop = (0, _sAlertDataPrep2.default)('full-top') || [];
                 length = storeStateTop.length;
                 if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
@@ -130,7 +130,7 @@ var SAlert = function (_React$Component) {
             this.unsubStoreTop = _sAlertStore2.default.subscribe(addToStoreTop);
 
             var addToStoreBottom = function addToStoreBottom() {
-                var length = undefined;
+                var length = void 0;
                 storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom') || [];
                 length = storeStateBottom.length;
                 if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {

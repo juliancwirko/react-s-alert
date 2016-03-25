@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // custom simple store based on a awesome Redux library https://github.com/rackt/redux
 
 var createSAlertStore = function createSAlertStore(reducer) {
-    var state = undefined;
+    var state = void 0;
     var listeners = [];
     var getState = function getState() {
         return state;

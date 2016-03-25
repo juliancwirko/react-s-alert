@@ -12,7 +12,8 @@ The demo website and provided source code are the best learning resources.
 
 ## Usage with React
 
-Here is what you need to do to make it work. There will be all configuration options described below.
+Here is what you need to do to make it work.
+**Of course you need to have React and ReactDOM installed in your project.**
 
 ### 1. Install the package
 
@@ -469,9 +470,9 @@ Possible 'customFields' values:
 
 ## Overwrite content template component
 
-With sAlert you have the possibility to overwrite the `SAlertContentTmpl` core component. This is useful when you want to provide more dynamic data in your alerts or just when you want to rebuild the HTML structure of the alert. This is very useful, but might not be trivial. Standard sAlerts will take only the message you want to display and some configuration. There will be use cases when you want to display some more dynamic data or just some more HTML structures. 
+With sAlert you have the possibility to overwrite the `SAlertContentTmpl` core component. This is useful when you want to provide more dynamic data in your alerts or just when you want to rebuild the HTML structure of the alert. This is very useful, but might not be trivial. Standard sAlerts will take only the message you want to display and some configuration. There will be use cases when you want to display some more dynamic data or just some more HTML structures.
 
- I'll try to explain it by example: 
+ I'll try to explain it by example:
 
 Let's say that we want to have an alert with the additional dynamic data. We want the name of the customer, and a confirmation button which will close the alert.
 

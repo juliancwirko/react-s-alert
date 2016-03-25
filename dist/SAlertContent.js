@@ -61,7 +61,7 @@ var SAlertContent = function (_React$Component) {
     (0, _createClass3.default)(SAlertContent, [{
         key: 'handleCloseAlert',
         value: function handleCloseAlert() {
-            var closingTimeout = undefined;
+            var closingTimeout = void 0;
             var alertId = this.props.id;
             var currentAlertElem = _reactDom2.default.findDOMNode(this);
             var animationClose = function animationClose() {

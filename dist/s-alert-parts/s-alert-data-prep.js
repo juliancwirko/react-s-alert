@@ -35,11 +35,11 @@ var getAlertData = function getAlertData(sAlertPosition) {
     var positionBottom = 0;
     var padding = 0;
     var alerts = {};
-    var style = undefined;
-    var docElement = undefined;
-    var sAlertBoxHeight = undefined;
-    var positionTypeTop = undefined;
-    var positionTypeBottom = undefined;
+    var style = void 0;
+    var docElement = void 0;
+    var sAlertBoxHeight = void 0;
+    var positionTypeTop = void 0;
+    var positionTypeBottom = void 0;
     var checkFirst = function checkFirst(type, objId) {
         var collectionOfType = sAlertCollection.filter(function (obj) {
             return obj.position === type || sAlertGlobalConfig.position === type;
@@ -63,13 +63,13 @@ var getAlertData = function getAlertData(sAlertPosition) {
     };
 
     var sAlertGlobalConfig = _sAlertTools2.default.getGlobalConfig();
-    var aStack = undefined;
-    var aContentTemplate = undefined;
-    var aOffset = undefined;
-    var aMessage = undefined;
-    var aHtml = undefined;
-    var aCustomFields = undefined;
-    var aPosition = undefined;
+    var aStack = void 0;
+    var aContentTemplate = void 0;
+    var aOffset = void 0;
+    var aMessage = void 0;
+    var aHtml = void 0;
+    var aCustomFields = void 0;
+    var aPosition = void 0;
 
     var query = {};
     if (sAlertPosition === 'left') {
