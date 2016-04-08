@@ -54,7 +54,7 @@ var insertFunc = function insertFunc(msg, data, condition) {
     var id = _sAlertTools2.default.randomId();
     _sAlertStore2.default.dispatch({
         type: 'INSERT',
-        data: (0, _assign2.default)({}, data, {
+        data: (0, _assign2.default)({ position: 'top-right' }, data, {
             id: id,
             condition: condition,
             message: msg
