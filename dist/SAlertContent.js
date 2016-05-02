@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -27,10 +31,6 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
 
 var _reactDom = require('react-dom');
 
@@ -89,27 +89,27 @@ var SAlertContent = function (_React$Component) {
         value: function componentWillMount() {
             var beep = this.props.beep;
             var condition = this.props.condition;
-            if (beep && _lodash2.default.isString(beep)) {
+            if (beep && typeof beep === 'string') {
                 this.alertAudio = new Audio(beep);
                 this.alertAudio.load();
                 this.alertAudio.play();
             }
-            if (beep && _lodash2.default.isObject(beep) && condition === 'info') {
+            if (beep && (typeof beep === 'undefined' ? 'undefined' : (0, _typeof3.default)(beep)) === 'object' && condition === 'info') {
                 this.alertAudio = new Audio(beep.info);
                 this.alertAudio.load();
                 this.alertAudio.play();
             }
-            if (beep && _lodash2.default.isObject(beep) && condition === 'error') {
+            if (beep && (typeof beep === 'undefined' ? 'undefined' : (0, _typeof3.default)(beep)) === 'object' && condition === 'error') {
                 this.alertAudio = new Audio(beep.error);
                 this.alertAudio.load();
                 this.alertAudio.play();
             }
-            if (beep && _lodash2.default.isObject(beep) && condition === 'success') {
+            if (beep && (typeof beep === 'undefined' ? 'undefined' : (0, _typeof3.default)(beep)) === 'object' && condition === 'success') {
                 this.alertAudio = new Audio(beep.success);
                 this.alertAudio.load();
                 this.alertAudio.play();
             }
-            if (beep && _lodash2.default.isObject(beep) && condition === 'warning') {
+            if (beep && (typeof beep === 'undefined' ? 'undefined' : (0, _typeof3.default)(beep)) === 'object' && condition === 'warning') {
                 this.alertAudio = new Audio(beep.warning);
                 this.alertAudio.load();
                 this.alertAudio.play();

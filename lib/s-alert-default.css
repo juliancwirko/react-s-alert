@@ -10,7 +10,7 @@
     background: rgba(42,45,50,0.85);
     padding: 22px;
     line-height: 1.4;
-    z-index: 1000;
+    z-index: 9999;
     pointer-events: none;
     color: rgba(250,251,255,0.95);
     font-size: 100%;
