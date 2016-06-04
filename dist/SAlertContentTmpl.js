@@ -1,68 +1,114 @@
-'use strict';
+(function (global, factory) {
+    if (typeof define === "function" && define.amd) {
+        define(['exports', 'react'], factory);
+    } else if (typeof exports !== "undefined") {
+        factory(exports, require('react'));
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod.exports, global.react);
+        global.SAlertContentTmpl = mod.exports;
+    }
+})(this, function (exports, _react) {
+    'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+    var _react2 = _interopRequireDefault(_react);
 
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SAlertContentTmpl = function (_React$Component) {
-    (0, _inherits3.default)(SAlertContentTmpl, _React$Component);
-
-    function SAlertContentTmpl(props) {
-        (0, _classCallCheck3.default)(this, SAlertContentTmpl);
-        return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(SAlertContentTmpl).call(this, props));
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
     }
 
-    (0, _createClass3.default)(SAlertContentTmpl, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: this.props.classNames, id: this.props.id, style: this.props.styles },
-                _react2.default.createElement(
-                    'div',
-                    { className: 's-alert-box-inner' },
-                    this.props.message
-                ),
-                _react2.default.createElement('span', { className: 's-alert-close', onClick: this.props.handleClose })
-            );
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
         }
-    }]);
-    return SAlertContentTmpl;
-}(_react2.default.Component);
+    }
 
-SAlertContentTmpl.propTypes = {
-    id: _react2.default.PropTypes.string.isRequired,
-    classNames: _react2.default.PropTypes.string.isRequired,
-    styles: _react2.default.PropTypes.object.isRequired,
-    message: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.object]).isRequired,
-    handleClose: _react2.default.PropTypes.func.isRequired,
-    customFields: _react2.default.PropTypes.object
-};
+    var _createClass = function () {
+        function defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                descriptor.enumerable = descriptor.enumerable || false;
+                descriptor.configurable = true;
+                if ("value" in descriptor) descriptor.writable = true;
+                Object.defineProperty(target, descriptor.key, descriptor);
+            }
+        }
 
-exports.default = SAlertContentTmpl;
+        return function (Constructor, protoProps, staticProps) {
+            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) defineProperties(Constructor, staticProps);
+            return Constructor;
+        };
+    }();
+
+    function _possibleConstructorReturn(self, call) {
+        if (!self) {
+            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        }
+
+        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+
+    function _inherits(subClass, superClass) {
+        if (typeof superClass !== "function" && superClass !== null) {
+            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+        }
+
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+            constructor: {
+                value: subClass,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
+
+    var SAlertContentTmpl = function (_React$Component) {
+        _inherits(SAlertContentTmpl, _React$Component);
+
+        function SAlertContentTmpl(props) {
+            _classCallCheck(this, SAlertContentTmpl);
+
+            return _possibleConstructorReturn(this, Object.getPrototypeOf(SAlertContentTmpl).call(this, props));
+        }
+
+        _createClass(SAlertContentTmpl, [{
+            key: 'render',
+            value: function render() {
+                return _react2.default.createElement(
+                    'div',
+                    { className: this.props.classNames, id: this.props.id, style: this.props.styles },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 's-alert-box-inner' },
+                        this.props.message
+                    ),
+                    _react2.default.createElement('span', { className: 's-alert-close', onClick: this.props.handleClose })
+                );
+            }
+        }]);
+
+        return SAlertContentTmpl;
+    }(_react2.default.Component);
+
+    SAlertContentTmpl.propTypes = {
+        id: _react2.default.PropTypes.string.isRequired,
+        classNames: _react2.default.PropTypes.string.isRequired,
+        styles: _react2.default.PropTypes.object.isRequired,
+        message: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.object]).isRequired,
+        handleClose: _react2.default.PropTypes.func.isRequired,
+        customFields: _react2.default.PropTypes.object
+    };
+
+    exports.default = SAlertContentTmpl;
+});

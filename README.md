@@ -30,7 +30,7 @@ import Alert from 'react-s-alert';
 
 With ES5:
 ```
-var Alert = require('react-s-alert');
+var Alert = require('react-s-alert').default;
 ```
 
 ### 3. Import (or copy) CSS files

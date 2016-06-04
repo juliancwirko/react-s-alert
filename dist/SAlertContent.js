@@ -1,175 +1,215 @@
-'use strict';
+(function (global, factory) {
+    if (typeof define === "function" && define.amd) {
+        define(['exports', 'react', 'react-dom', './s-alert-parts/s-alert-tools', './s-alert-parts/s-alert-store', './SAlertContentTmpl'], factory);
+    } else if (typeof exports !== "undefined") {
+        factory(exports, require('react'), require('react-dom'), require('./s-alert-parts/s-alert-tools'), require('./s-alert-parts/s-alert-store'), require('./SAlertContentTmpl'));
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod.exports, global.react, global.reactDom, global.sAlertTools, global.sAlertStore, global.SAlertContentTmpl);
+        global.SAlertContent = mod.exports;
+    }
+})(this, function (exports, _react, _reactDom, _sAlertTools, _sAlertStore, _SAlertContentTmpl) {
+    'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
 
-var _typeof2 = require('babel-runtime/helpers/typeof');
+    var _react2 = _interopRequireDefault(_react);
 
-var _typeof3 = _interopRequireDefault(_typeof2);
+    var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+    var _sAlertTools2 = _interopRequireDefault(_sAlertTools);
 
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+    var _sAlertStore2 = _interopRequireDefault(_sAlertStore);
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+    var _SAlertContentTmpl2 = _interopRequireDefault(_SAlertContentTmpl);
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _sAlertTools = require('./s-alert-parts/s-alert-tools');
-
-var _sAlertTools2 = _interopRequireDefault(_sAlertTools);
-
-var _sAlertStore = require('./s-alert-parts/s-alert-store');
-
-var _sAlertStore2 = _interopRequireDefault(_sAlertStore);
-
-var _SAlertContentTmpl = require('./SAlertContentTmpl');
-
-var _SAlertContentTmpl2 = _interopRequireDefault(_SAlertContentTmpl);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SAlertContent = function (_React$Component) {
-    (0, _inherits3.default)(SAlertContent, _React$Component);
-
-    function SAlertContent(props) {
-        (0, _classCallCheck3.default)(this, SAlertContent);
-        return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(SAlertContent).call(this, props));
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
     }
 
-    (0, _createClass3.default)(SAlertContent, [{
-        key: 'handleCloseAlert',
-        value: function handleCloseAlert() {
-            var closingTimeout = void 0;
-            var alertId = this.props.id;
-            var currentAlertElem = _reactDom2.default.findDOMNode(this);
-            var animationClose = function animationClose() {
-                currentAlertElem.style.display = 'none';
-                _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: alertId } });
-                clearTimeout(closingTimeout);
-            };
-            if (document.hidden || document.webkitHidden || !currentAlertElem.classList.contains('s-alert-is-effect')) {
-                _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: alertId } });
-            } else {
-                currentAlertElem.classList.remove('s-alert-show');
-                closingTimeout = setTimeout(function () {
-                    currentAlertElem.classList.add('s-alert-hide');
-                }, 100);
-                currentAlertElem.removeEventListener('webkitAnimationEnd', animationClose, false);
-                currentAlertElem.removeEventListener('animationend', animationClose, false);
-                currentAlertElem.addEventListener('webkitAnimationEnd', animationClose, false);
-                currentAlertElem.addEventListener('animationend', animationClose, false);
-            }
-            // stop audio when closing
-            this.alertAudio && this.alertAudio.load();
-        }
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            var beep = this.props.beep;
-            var condition = this.props.condition;
-            if (beep && typeof beep === 'string') {
-                this.alertAudio = new Audio(beep);
-                this.alertAudio.load();
-                this.alertAudio.play();
-            }
-            if (beep && (typeof beep === 'undefined' ? 'undefined' : (0, _typeof3.default)(beep)) === 'object' && condition === 'info') {
-                this.alertAudio = new Audio(beep.info);
-                this.alertAudio.load();
-                this.alertAudio.play();
-            }
-            if (beep && (typeof beep === 'undefined' ? 'undefined' : (0, _typeof3.default)(beep)) === 'object' && condition === 'error') {
-                this.alertAudio = new Audio(beep.error);
-                this.alertAudio.load();
-                this.alertAudio.play();
-            }
-            if (beep && (typeof beep === 'undefined' ? 'undefined' : (0, _typeof3.default)(beep)) === 'object' && condition === 'success') {
-                this.alertAudio = new Audio(beep.success);
-                this.alertAudio.load();
-                this.alertAudio.play();
-            }
-            if (beep && (typeof beep === 'undefined' ? 'undefined' : (0, _typeof3.default)(beep)) === 'object' && condition === 'warning') {
-                this.alertAudio = new Audio(beep.warning);
-                this.alertAudio.load();
-                this.alertAudio.play();
-            }
-        }
-    }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
+    var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+        return typeof obj;
+    } : function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+    };
 
-            if (typeof this.props.timeout === 'number') {
-                this.closeTimer = setTimeout(function () {
-                    _this2.handleCloseAlert();
-                }, this.props.timeout);
-            }
-            if (this.props.onShow) {
-                this.props.onShow();
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _createClass = function () {
+        function defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                descriptor.enumerable = descriptor.enumerable || false;
+                descriptor.configurable = true;
+                if ("value" in descriptor) descriptor.writable = true;
+                Object.defineProperty(target, descriptor.key, descriptor);
             }
         }
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            if (this.closeTimer) {
-                clearTimeout(this.closeTimer);
-            }
-            if (this.props.onClose) {
-                this.props.onClose();
-            }
+
+        return function (Constructor, protoProps, staticProps) {
+            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) defineProperties(Constructor, staticProps);
+            return Constructor;
+        };
+    }();
+
+    function _possibleConstructorReturn(self, call) {
+        if (!self) {
+            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
         }
-    }, {
-        key: 'render',
-        value: function render() {
-            var classNames = 's-alert-box s-alert-' + this.props.condition + ' s-alert-' + this.props.position + ' ' + (this.props.effect ? 's-alert-is-effect s-alert-effect-' + this.props.effect : '') + ' s-alert-show';
-            var message = this.props.html ? _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: this.props.message } }) : this.props.message;
-            var styles = this.props.boxPosition ? _sAlertTools2.default.styleToObj(this.props.boxPosition) : {};
-            var id = this.props.id;
-            var handleClose = this.handleCloseAlert.bind(this);
-            var contentTemplate = this.props.contentTemplate || _SAlertContentTmpl2.default;
-            var customFields = this.props.customFields || {};
 
-            return _react2.default.createElement(contentTemplate, { classNames: classNames, id: id, styles: styles, message: message, handleClose: handleClose, customFields: customFields });
+        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+
+    function _inherits(subClass, superClass) {
+        if (typeof superClass !== "function" && superClass !== null) {
+            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
         }
-    }]);
-    return SAlertContent;
-}(_react2.default.Component);
 
-SAlertContent.propTypes = {
-    condition: _react2.default.PropTypes.string.isRequired,
-    message: _react2.default.PropTypes.string.isRequired,
-    position: _react2.default.PropTypes.string.isRequired,
-    boxPosition: _react2.default.PropTypes.string,
-    id: _react2.default.PropTypes.string.isRequired,
-    effect: _react2.default.PropTypes.string,
-    beep: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.object, _react2.default.PropTypes.bool]),
-    timeout: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.oneOf(['none']), _react2.default.PropTypes.number]),
-    html: _react2.default.PropTypes.bool,
-    onClose: _react2.default.PropTypes.func,
-    onShow: _react2.default.PropTypes.func,
-    customFields: _react2.default.PropTypes.object,
-    contentTemplate: _react2.default.PropTypes.func
-};
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+            constructor: {
+                value: subClass,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
 
-exports.default = SAlertContent;
+    var SAlertContent = function (_React$Component) {
+        _inherits(SAlertContent, _React$Component);
+
+        function SAlertContent(props) {
+            _classCallCheck(this, SAlertContent);
+
+            return _possibleConstructorReturn(this, Object.getPrototypeOf(SAlertContent).call(this, props));
+        }
+
+        _createClass(SAlertContent, [{
+            key: 'handleCloseAlert',
+            value: function handleCloseAlert() {
+                var closingTimeout = void 0;
+                var alertId = this.props.id;
+                var currentAlertElem = _reactDom2.default.findDOMNode(this);
+                var animationClose = function animationClose() {
+                    currentAlertElem.style.display = 'none';
+                    _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: alertId } });
+                    clearTimeout(closingTimeout);
+                };
+                if (document.hidden || document.webkitHidden || !currentAlertElem.classList.contains('s-alert-is-effect')) {
+                    _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: alertId } });
+                } else {
+                    currentAlertElem.classList.remove('s-alert-show');
+                    closingTimeout = setTimeout(function () {
+                        currentAlertElem.classList.add('s-alert-hide');
+                    }, 100);
+                    currentAlertElem.removeEventListener('webkitAnimationEnd', animationClose, false);
+                    currentAlertElem.removeEventListener('animationend', animationClose, false);
+                    currentAlertElem.addEventListener('webkitAnimationEnd', animationClose, false);
+                    currentAlertElem.addEventListener('animationend', animationClose, false);
+                }
+                // stop audio when closing
+                this.alertAudio && this.alertAudio.load();
+            }
+        }, {
+            key: 'componentWillMount',
+            value: function componentWillMount() {
+                var beep = this.props.beep;
+                var condition = this.props.condition;
+                if (beep && typeof beep === 'string') {
+                    this.alertAudio = new Audio(beep);
+                    this.alertAudio.load();
+                    this.alertAudio.play();
+                }
+                if (beep && (typeof beep === 'undefined' ? 'undefined' : _typeof(beep)) === 'object' && condition === 'info') {
+                    this.alertAudio = new Audio(beep.info);
+                    this.alertAudio.load();
+                    this.alertAudio.play();
+                }
+                if (beep && (typeof beep === 'undefined' ? 'undefined' : _typeof(beep)) === 'object' && condition === 'error') {
+                    this.alertAudio = new Audio(beep.error);
+                    this.alertAudio.load();
+                    this.alertAudio.play();
+                }
+                if (beep && (typeof beep === 'undefined' ? 'undefined' : _typeof(beep)) === 'object' && condition === 'success') {
+                    this.alertAudio = new Audio(beep.success);
+                    this.alertAudio.load();
+                    this.alertAudio.play();
+                }
+                if (beep && (typeof beep === 'undefined' ? 'undefined' : _typeof(beep)) === 'object' && condition === 'warning') {
+                    this.alertAudio = new Audio(beep.warning);
+                    this.alertAudio.load();
+                    this.alertAudio.play();
+                }
+            }
+        }, {
+            key: 'componentDidMount',
+            value: function componentDidMount() {
+                var _this2 = this;
+
+                if (typeof this.props.timeout === 'number') {
+                    this.closeTimer = setTimeout(function () {
+                        _this2.handleCloseAlert();
+                    }, this.props.timeout);
+                }
+                if (this.props.onShow) {
+                    this.props.onShow();
+                }
+            }
+        }, {
+            key: 'componentWillUnmount',
+            value: function componentWillUnmount() {
+                if (this.closeTimer) {
+                    clearTimeout(this.closeTimer);
+                }
+                if (this.props.onClose) {
+                    this.props.onClose();
+                }
+            }
+        }, {
+            key: 'render',
+            value: function render() {
+                var classNames = 's-alert-box s-alert-' + this.props.condition + ' s-alert-' + this.props.position + ' ' + (this.props.effect ? 's-alert-is-effect s-alert-effect-' + this.props.effect : '') + ' s-alert-show';
+                var message = this.props.html ? _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: this.props.message } }) : this.props.message;
+                var styles = this.props.boxPosition ? _sAlertTools2.default.styleToObj(this.props.boxPosition) : {};
+                var id = this.props.id;
+                var handleClose = this.handleCloseAlert.bind(this);
+                var contentTemplate = this.props.contentTemplate || _SAlertContentTmpl2.default;
+                var customFields = this.props.customFields || {};
+
+                return _react2.default.createElement(contentTemplate, { classNames: classNames, id: id, styles: styles, message: message, handleClose: handleClose, customFields: customFields });
+            }
+        }]);
+
+        return SAlertContent;
+    }(_react2.default.Component);
+
+    SAlertContent.propTypes = {
+        condition: _react2.default.PropTypes.string.isRequired,
+        message: _react2.default.PropTypes.string.isRequired,
+        position: _react2.default.PropTypes.string.isRequired,
+        boxPosition: _react2.default.PropTypes.string,
+        id: _react2.default.PropTypes.string.isRequired,
+        effect: _react2.default.PropTypes.string,
+        beep: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.object, _react2.default.PropTypes.bool]),
+        timeout: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.oneOf(['none']), _react2.default.PropTypes.number]),
+        html: _react2.default.PropTypes.bool,
+        onClose: _react2.default.PropTypes.func,
+        onShow: _react2.default.PropTypes.func,
+        customFields: _react2.default.PropTypes.object,
+        contentTemplate: _react2.default.PropTypes.func
+    };
+
+    exports.default = SAlertContent;
+});
