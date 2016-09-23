@@ -179,6 +179,12 @@ You always need to provide a `message`. For example
 Alert.error('Test message 3');
 ```
 
+You can also provide a react component:
+
+```javascript
+Alert.error(<MyComponent props1={props1} props2={props2}/>);
+```
+
 You don't need to provide the configuration object here, just remember to provide it globally.
 
 ## Configuration details
