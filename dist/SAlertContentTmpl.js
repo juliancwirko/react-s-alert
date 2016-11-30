@@ -79,7 +79,7 @@
         function SAlertContentTmpl(props) {
             _classCallCheck(this, SAlertContentTmpl);
 
-            return _possibleConstructorReturn(this, Object.getPrototypeOf(SAlertContentTmpl).call(this, props));
+            return _possibleConstructorReturn(this, (SAlertContentTmpl.__proto__ || Object.getPrototypeOf(SAlertContentTmpl)).call(this, props));
         }
 
         _createClass(SAlertContentTmpl, [{

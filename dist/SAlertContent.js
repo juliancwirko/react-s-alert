@@ -36,7 +36,7 @@
     var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
         return typeof obj;
     } : function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
 
     function _classCallCheck(instance, Constructor) {
@@ -93,7 +93,7 @@
         function SAlertContent(props) {
             _classCallCheck(this, SAlertContent);
 
-            return _possibleConstructorReturn(this, Object.getPrototypeOf(SAlertContent).call(this, props));
+            return _possibleConstructorReturn(this, (SAlertContent.__proto__ || Object.getPrototypeOf(SAlertContent)).call(this, props));
         }
 
         _createClass(SAlertContent, [{
@@ -197,7 +197,7 @@
 
     SAlertContent.propTypes = {
         condition: _react2.default.PropTypes.string.isRequired,
-        message: _react2.default.PropTypes.string.isRequired,
+        message: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.node]),
         position: _react2.default.PropTypes.string.isRequired,
         boxPosition: _react2.default.PropTypes.string,
         id: _react2.default.PropTypes.string.isRequired,

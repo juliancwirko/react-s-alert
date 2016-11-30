@@ -100,7 +100,7 @@
         function SAlert(props) {
             _classCallCheck(this, SAlert);
 
-            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SAlert).call(this, props));
+            var _this = _possibleConstructorReturn(this, (SAlert.__proto__ || Object.getPrototypeOf(SAlert)).call(this, props));
 
             _this.state = {
                 dataRight: [],

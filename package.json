@@ -1,6 +1,6 @@
 {
   "name": "react-s-alert",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Alerts / Notifications for React with rich configuration options",
   "repository": {
     "type": "git",
@@ -53,9 +53,9 @@
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.1",
-    "react": "~15.0.0",
+    "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
-    "react-dom": "~15.0.0"
+    "react-dom": "^15.0.0"
   },
   "peerDependencies": {
     "react": "~0.14.3 || ^15.0.0",
