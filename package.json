@@ -29,7 +29,7 @@
     "mocha": "--require scripts/mocha_runner lib/**/__tests__/**/*.js"
   },
   "scripts": {
-    "prepublish": "babel --plugins 'transform-es2015-modules-umd' lib --ignore __tests__ --out-dir ./dist",
+    "prepublish": "babel --plugins transform-es2015-modules-umd lib --ignore __tests__ --out-dir ./dist",
     "lint": "eslint ./lib",
     "lintfix": "eslint ./lib --fix",
     "testonly": "mocha $npm_package_options_mocha",
