@@ -387,7 +387,7 @@ In global config:
 <Alert beep={{
     info: '/path-to-audio/file-info.mp3',
     error: '/path-to-audio/file-error.mp3',
-    warning: '/path-to-audio/file-warning.mp3'
+    warning: '/path-to-audio/file-warning.mp3',
     success: '/path-to-audio/file-success.mp3'}} />
 ```
 or just one for all:
