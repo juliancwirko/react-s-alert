@@ -114,6 +114,23 @@
     bottom: 30px;
     left: auto;
 }
+
+.s-alert-top-center {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    margin: -10px auto auto auto;
+}
+
+.s-alert-bottom-center {
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    top: auto;
+    margin: auto auto -10px auto;
+}
+
 .s-alert-bottom {
     width: 100%;
     max-width: 100%;
@@ -122,6 +139,7 @@
     right: 0;
     top: auto;
 }
+
 .s-alert-top {
     width: 100%;
     max-width: 100%;
