@@ -291,9 +291,11 @@ In global config:
 Possible positions:
 
 - **top** (full width)
-- **bottom** (full width)
+- **top-center**
 - **top-right**
 - **top-left**
+- **bottom** (full width)
+- **bottom-center**
 - **bottom-right**
 - **bottom-left**
 
