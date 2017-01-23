@@ -29,6 +29,7 @@
     "mocha": "--require scripts/mocha_runner lib/**/__tests__/**/*.js"
   },
   "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --port 8012",
     "prepublish": "babel --plugins transform-es2015-modules-umd lib --ignore __tests__ --out-dir ./dist",
     "lint": "eslint ./lib",
     "lintfix": "eslint ./lib --fix",
@@ -39,6 +40,7 @@
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
     "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
     "babel-plugin-transform-es2015-modules-umd": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-polyfill": "^6.20.0",
@@ -46,16 +48,22 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "chai": "^3.5.0",
+    "cross-env": "^3.1.4",
+    "css-loader": "^0.26.1",
     "enzyme": "^2.6.0",
     "eslint": "^3.12.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-react": "^6.8.0",
+    "html-webpack-plugin": "^2.26.0",
     "jsdom": "^9.8.3",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react-dom": "^15.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   },
   "peerDependencies": {
     "react": "~0.14.3 || ^15.0.0",
