@@ -11,6 +11,7 @@
   "bugs": {
     "url": "https://github.com/juliancwirko/react-s-alert/issues"
   },
+  "style": "dist/s-alert-default.css",
   "homepage": "https://github.com/juliancwirko/react-s-alert",
   "keywords": [
     "react-component",
