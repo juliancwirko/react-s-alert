@@ -1,16 +1,16 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['exports', 'react', 'react-dom', './s-alert-parts/s-alert-tools', './s-alert-parts/s-alert-store', './SAlertContentTmpl'], factory);
+        define(['exports', 'react', 'react-dom', 'prop-types', './s-alert-parts/s-alert-tools', './s-alert-parts/s-alert-store', './SAlertContentTmpl'], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require('react'), require('react-dom'), require('./s-alert-parts/s-alert-tools'), require('./s-alert-parts/s-alert-store'), require('./SAlertContentTmpl'));
+        factory(exports, require('react'), require('react-dom'), require('prop-types'), require('./s-alert-parts/s-alert-tools'), require('./s-alert-parts/s-alert-store'), require('./SAlertContentTmpl'));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.react, global.reactDom, global.sAlertTools, global.sAlertStore, global.SAlertContentTmpl);
+        factory(mod.exports, global.react, global.reactDom, global.propTypes, global.sAlertTools, global.sAlertStore, global.SAlertContentTmpl);
         global.SAlertContent = mod.exports;
     }
-})(this, function (exports, _react, _reactDom, _sAlertTools, _sAlertStore, _SAlertContentTmpl) {
+})(this, function (exports, _react, _reactDom, _propTypes, _sAlertTools, _sAlertStore, _SAlertContentTmpl) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -20,6 +20,8 @@
     var _react2 = _interopRequireDefault(_react);
 
     var _reactDom2 = _interopRequireDefault(_reactDom);
+
+    var _propTypes2 = _interopRequireDefault(_propTypes);
 
     var _sAlertTools2 = _interopRequireDefault(_sAlertTools);
 
@@ -196,19 +198,19 @@
     }(_react2.default.Component);
 
     SAlertContent.propTypes = {
-        condition: _react2.default.PropTypes.string.isRequired,
-        message: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.node]),
-        position: _react2.default.PropTypes.string.isRequired,
-        boxPosition: _react2.default.PropTypes.string,
-        id: _react2.default.PropTypes.string.isRequired,
-        effect: _react2.default.PropTypes.string,
-        beep: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.object, _react2.default.PropTypes.bool]),
-        timeout: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.oneOf(['none']), _react2.default.PropTypes.number]),
-        html: _react2.default.PropTypes.bool,
-        onClose: _react2.default.PropTypes.func,
-        onShow: _react2.default.PropTypes.func,
-        customFields: _react2.default.PropTypes.object,
-        contentTemplate: _react2.default.PropTypes.func
+        condition: _propTypes2.default.string.isRequired,
+        message: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.node]),
+        position: _propTypes2.default.string.isRequired,
+        boxPosition: _propTypes2.default.string,
+        id: _propTypes2.default.string.isRequired,
+        effect: _propTypes2.default.string,
+        beep: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.bool]),
+        timeout: _propTypes2.default.oneOfType([_propTypes2.default.oneOf(['none']), _propTypes2.default.number]),
+        html: _propTypes2.default.bool,
+        onClose: _propTypes2.default.func,
+        onShow: _propTypes2.default.func,
+        customFields: _propTypes2.default.object,
+        contentTemplate: _propTypes2.default.func
     };
 
     exports.default = SAlertContent;

@@ -1,16 +1,16 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['exports', 'react'], factory);
+        define(['exports', 'react', 'prop-types'], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require('react'));
+        factory(exports, require('react'), require('prop-types'));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.react);
+        factory(mod.exports, global.react, global.propTypes);
         global.SAlertContentTmpl = mod.exports;
     }
-})(this, function (exports, _react) {
+})(this, function (exports, _react, _propTypes) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -18,6 +18,8 @@
     });
 
     var _react2 = _interopRequireDefault(_react);
+
+    var _propTypes2 = _interopRequireDefault(_propTypes);
 
     function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {
@@ -102,12 +104,12 @@
     }(_react2.default.Component);
 
     SAlertContentTmpl.propTypes = {
-        id: _react2.default.PropTypes.string.isRequired,
-        classNames: _react2.default.PropTypes.string.isRequired,
-        styles: _react2.default.PropTypes.object.isRequired,
-        message: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.object]).isRequired,
-        handleClose: _react2.default.PropTypes.func.isRequired,
-        customFields: _react2.default.PropTypes.object
+        id: _propTypes2.default.string.isRequired,
+        classNames: _propTypes2.default.string.isRequired,
+        styles: _propTypes2.default.object.isRequired,
+        message: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]).isRequired,
+        handleClose: _propTypes2.default.func.isRequired,
+        customFields: _propTypes2.default.object
     };
 
     exports.default = SAlertContentTmpl;
