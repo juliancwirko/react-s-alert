@@ -566,6 +566,9 @@ npm run prepublish
 
 ## Also check out
 
+- [Meteor/React/GrpahQL apps development](http://www.psd2meteor.com/)
+- [Open Source Live Chat App built with Meteor](https://www.simplechat.support/)
+- [Stylus Flexbox Grid](http://stylusgrid.com/)
 - [React project boilerplate with Webpack, HMR, React Router](https://github.com/juliancwirko/react-boilerplate)
 - [Boilerplate for creating React Npm packages with ES2015](https://github.com/juliancwirko/react-npm-boilerplate)
 
