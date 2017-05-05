@@ -118,6 +118,19 @@
             value: function componentDidMount() {
                 var _this2 = this;
 
+                // set up global config from global SAlert props
+                // only stuff needed for getAlertData
+                var globalConfig = {
+                    contentTemplate: this.props.contentTemplate,
+                    offset: this.props.offset,
+                    message: this.props.message,
+                    stack: this.props.stack,
+                    html: this.props.html,
+                    customFields: this.props.customFields,
+                    position: this.props.position || 'top-right'
+                };
+                _sAlertTools2.default.setGlobalConfig(globalConfig);
+
                 var storeStateLeft = void 0;
                 var storeStateRight = void 0;
                 var storeStateTop = void 0;
@@ -174,19 +187,6 @@
                     _this2.setState({ dataBottom: storeStateBottom });
                 };
                 this.unsubStoreBottom = _sAlertStore2.default.subscribe(addToStoreBottom);
-
-                // set up global config from global SAlert props
-                // only stuff needed for getAlertData
-                var globalConfig = {
-                    contentTemplate: this.props.contentTemplate,
-                    offset: this.props.offset,
-                    message: this.props.message,
-                    stack: this.props.stack,
-                    html: this.props.html,
-                    customFields: this.props.customFields,
-                    position: this.props.position || 'top-right'
-                };
-                _sAlertTools2.default.setGlobalConfig(globalConfig);
             }
         }, {
             key: 'componentWillUnmount',

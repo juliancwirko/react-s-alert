@@ -45,6 +45,7 @@
         };
         var subscribe = function subscribe(listener) {
             listeners.push(listener);
+            listener();
             return function () {
                 listeners = listeners.filter(function (l) {
                     return l !== listener;
