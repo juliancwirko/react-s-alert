@@ -1,6 +1,6 @@
 {
   "name": "react-s-alert",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Alerts / Notifications for React with rich configuration options",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "mocha": "--require scripts/mocha_runner lib/**/__tests__/**/*.js"
   },
   "scripts": {
-    "prepublish": "babel --plugins transform-es2015-modules-umd lib --ignore __tests__ --out-dir ./dist",
+    "prepublishOnly": "babel --plugins transform-es2015-modules-umd lib --ignore __tests__ --out-dir ./dist",
     "lint": "eslint ./lib",
     "lintfix": "eslint ./lib --fix",
     "testonly": "mocha $npm_package_options_mocha",
@@ -54,13 +54,13 @@
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "prop-types": "^15.5.4",
-    "react": "^15.5.0",
-    "react-dom": "^15.5.0",
-    "react-test-renderer": "^15.5.4"
+    "react": "^15.5.0 || ^16.0.0",
+    "react-dom": "^15.5.0  || ^16.0.0",
+    "react-test-renderer": "^15.5.4 || ^16.0.0"
   },
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
     "prop-types": "^15.5.4"
   },
   "dependencies": {
