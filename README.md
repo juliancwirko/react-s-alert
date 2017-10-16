@@ -514,6 +514,9 @@ class MyCustomContentTemplate extends React.Component {
             <div className={this.props.classNames} id={this.props.id} style={this.props.styles}>
                 <div className='s-alert-box-inner'>
                     {this.props.message}
+
+                    {/* use this api to customize alert style */}
+                    {this.props.condition}
                 </div>
                 <h3>{this.props.customFields.customerName}</h3>
                 <button onClick={this.handleConfirm.bind(this)}>Confirm</button>
