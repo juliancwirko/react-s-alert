@@ -33,6 +33,20 @@
         };
     }
 
+    var _extends = Object.assign || function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+            var source = arguments[i];
+
+            for (var key in source) {
+                if (Object.prototype.hasOwnProperty.call(source, key)) {
+                    target[key] = source[key];
+                }
+            }
+        }
+
+        return target;
+    };
+
     var getAlertData = function getAlertData(sAlertPosition) {
         var positionTop = 0;
         var positionBottom = 0;
@@ -146,13 +160,13 @@
                 if (sAlertPosition === 'right') {
                     style = style + 'right: ' + (aStack.spacing || parseInt(sAlertComputedStyle.right)) + 'px;';
                 }
-                alerts = Object.assign({}, alert, { boxPosition: style });
+                alerts = _extends({}, alert, { boxPosition: style });
                 _reactDom2.default.unmountComponentAtNode(docElement);
                 docElement.parentNode.removeChild(docElement);
             } else if (aOffset && positionTypeTop) {
-                alerts = Object.assign({}, alert, { boxPosition: 'top: ' + parseInt(aOffset) + 'px;' });
+                alerts = _extends({}, alert, { boxPosition: 'top: ' + parseInt(aOffset) + 'px;' });
             } else if (aOffset && positionTypeBottom) {
-                alerts = Object.assign({}, alert, { boxPosition: 'bottom: ' + parseInt(aOffset) + 'px;' });
+                alerts = _extends({}, alert, { boxPosition: 'bottom: ' + parseInt(aOffset) + 'px;' });
             } else {
                 alerts = alert;
             }
