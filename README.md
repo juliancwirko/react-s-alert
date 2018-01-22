@@ -67,6 +67,19 @@ require('react-s-alert/dist/s-alert-css-effects/jelly.css');
 require('react-s-alert/dist/s-alert-css-effects/stackslide.css');
 ```
 
+CDN:
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-default.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/bouncyflip.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/flip.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/genie.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/jelly.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/scale.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/slide.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/stackslide.css
+
+(you can change versions in URL if needed)
+
+
 You can also copy the files and include it another way in your app. It depends on your workflow.
 
 **If you are using CSS Modules for now you need to import these files globally.** (You can check the demo website Webpack config file).
