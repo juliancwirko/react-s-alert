@@ -1,6 +1,6 @@
 {
   "name": "react-s-alert",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Alerts / Notifications for React with rich configuration options",
   "repository": {
     "type": "git",

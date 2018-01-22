@@ -68,14 +68,14 @@ require('react-s-alert/dist/s-alert-css-effects/stackslide.css');
 ```
 
 CDN:
-- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-default.css
-- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/bouncyflip.css
-- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/flip.css
-- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/genie.css
-- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/jelly.css
-- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/scale.css
-- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/slide.css
-- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.0/dist/s-alert-css-effects/stackslide.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-default.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/bouncyflip.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/flip.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/genie.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/jelly.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/scale.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/slide.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/stackslide.css
 
 (you can change versions in URL if needed)
 
