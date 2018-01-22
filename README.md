@@ -71,7 +71,7 @@ You can also copy the files and include it another way in your app. It depends o
 
 **If you are using CSS Modules for now you need to import these files globally.** (You can check the demo website Webpack config file).
 
-### 4. Place sAlert component in you main app component
+### 4. Place sAlert component in your main app component
 
 You need to place the main sAlert container. The best place for it is at the end of your main app component. For Example:
 
