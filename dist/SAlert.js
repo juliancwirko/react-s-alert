@@ -98,7 +98,7 @@
     };
 
     var insertFunc = function insertFunc(msg, data, condition) {
-        var id = _sAlertTools2.default.randomId();
+        var id = data.id || _sAlertTools2.default.randomId();
         _sAlertStore2.default.dispatch({
             type: 'INSERT',
             data: _extends({}, data, {

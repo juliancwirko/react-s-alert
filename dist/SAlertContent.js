@@ -189,8 +189,9 @@
                 var handleClose = this.handleCloseAlert.bind(this);
                 var contentTemplate = this.props.contentTemplate || _SAlertContentTmpl2.default;
                 var customFields = this.props.customFields || {};
+                var condition = this.props.condition;
 
-                return _react2.default.createElement(contentTemplate, { classNames: classNames, id: id, styles: styles, message: message, handleClose: handleClose, customFields: customFields });
+                return _react2.default.createElement(contentTemplate, { classNames: classNames, id: id, styles: styles, message: message, handleClose: handleClose, customFields: customFields, condition: condition });
             }
         }]);
 
