@@ -83,11 +83,25 @@
         if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
 
+    var _extends = Object.assign || function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+            var source = arguments[i];
+
+            for (var key in source) {
+                if (Object.prototype.hasOwnProperty.call(source, key)) {
+                    target[key] = source[key];
+                }
+            }
+        }
+
+        return target;
+    };
+
     var insertFunc = function insertFunc(msg, data, condition) {
         var id = _sAlertTools2.default.randomId();
         _sAlertStore2.default.dispatch({
             type: 'INSERT',
-            data: Object.assign({}, data, {
+            data: _extends({}, data, {
                 id: id,
                 condition: condition,
                 message: msg
@@ -124,54 +138,70 @@
                 var storeStateBottom = void 0;
 
                 var addToStoreRight = function addToStoreRight() {
-                    var length = void 0;
-                    storeStateRight = (0, _sAlertDataPrep2.default)('right') || [];
-                    length = storeStateRight.length;
-                    if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
-                        var id = storeStateRight[0].id;
-                        _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
-                        storeStateRight = (0, _sAlertDataPrep2.default)('right') || [];
-                    }
-                    _this2.setState({ dataRight: storeStateRight });
+                    requestAnimationFrame(function () {
+                        return requestAnimationFrame(function () {
+                            var length = void 0;
+                            storeStateRight = (0, _sAlertDataPrep2.default)('right', _this2) || [];
+                            length = storeStateRight.length;
+                            if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
+                                var id = storeStateRight[0].id;
+                                _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
+                                storeStateRight = (0, _sAlertDataPrep2.default)('right', _this2) || [];
+                            }
+                            _this2.setState({ dataRight: storeStateRight });
+                        });
+                    });
                 };
                 this.unsubStoreRight = _sAlertStore2.default.subscribe(addToStoreRight);
 
                 var addToStoreLeft = function addToStoreLeft() {
-                    var length = void 0;
-                    storeStateLeft = (0, _sAlertDataPrep2.default)('left') || [];
-                    length = storeStateLeft.length;
-                    if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
-                        var id = storeStateLeft[0].id;
-                        _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
-                        storeStateLeft = (0, _sAlertDataPrep2.default)('left') || [];
-                    }
-                    _this2.setState({ dataLeft: storeStateLeft });
+                    requestAnimationFrame(function () {
+                        return requestAnimationFrame(function () {
+                            var length = void 0;
+                            storeStateLeft = (0, _sAlertDataPrep2.default)('left', _this2) || [];
+                            length = storeStateLeft.length;
+                            if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
+                                var id = storeStateLeft[0].id;
+                                _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
+                                storeStateLeft = (0, _sAlertDataPrep2.default)('left', _this2) || [];
+                            }
+                            _this2.setState({ dataLeft: storeStateLeft });
+                        });
+                    });
                 };
                 this.unsubStoreLeft = _sAlertStore2.default.subscribe(addToStoreLeft);
 
                 var addToStoreTop = function addToStoreTop() {
-                    var length = void 0;
-                    storeStateTop = (0, _sAlertDataPrep2.default)('full-top') || [];
-                    length = storeStateTop.length;
-                    if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
-                        var id = storeStateTop[0].id;
-                        _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
-                        storeStateTop = (0, _sAlertDataPrep2.default)('full-top') || [];
-                    }
-                    _this2.setState({ dataTop: storeStateTop });
+                    requestAnimationFrame(function () {
+                        return requestAnimationFrame(function () {
+                            var length = void 0;
+                            storeStateTop = (0, _sAlertDataPrep2.default)('full-top', _this2) || [];
+                            length = storeStateTop.length;
+                            if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
+                                var id = storeStateTop[0].id;
+                                _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
+                                storeStateTop = (0, _sAlertDataPrep2.default)('full-top', _this2) || [];
+                            }
+                            _this2.setState({ dataTop: storeStateTop });
+                        });
+                    });
                 };
                 this.unsubStoreTop = _sAlertStore2.default.subscribe(addToStoreTop);
 
                 var addToStoreBottom = function addToStoreBottom() {
-                    var length = void 0;
-                    storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom') || [];
-                    length = storeStateBottom.length;
-                    if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
-                        var id = storeStateBottom[0].id;
-                        _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
-                        storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom') || [];
-                    }
-                    _this2.setState({ dataBottom: storeStateBottom });
+                    requestAnimationFrame(function () {
+                        return requestAnimationFrame(function () {
+                            var length = void 0;
+                            storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom', _this2) || [];
+                            length = storeStateBottom.length;
+                            if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
+                                var id = storeStateBottom[0].id;
+                                _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
+                                storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom', _this2) || [];
+                            }
+                            _this2.setState({ dataBottom: storeStateBottom });
+                        });
+                    });
                 };
                 this.unsubStoreBottom = _sAlertStore2.default.subscribe(addToStoreBottom);
 
@@ -184,7 +214,8 @@
                     stack: this.props.stack,
                     html: this.props.html,
                     customFields: this.props.customFields,
-                    position: this.props.position || 'top-right'
+                    position: this.props.position || 'top-right',
+                    preserveContext: this.props.preserveContext || false
                 };
                 _sAlertTools2.default.setGlobalConfig(globalConfig);
             }
@@ -217,6 +248,7 @@
                     var onShow = _sAlertTools2.default.returnFirstDefined(alert.onShow, _this3.props.onShow);
                     var customFields = _sAlertTools2.default.returnFirstDefined(alert.customFields, _this3.props.customFields);
                     var contentTemplate = _this3.props.contentTemplate;
+
                     return _react2.default.createElement(_SAlertContent2.default, {
                         key: customKey,
                         id: id,
@@ -290,6 +322,7 @@
         beep: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.bool]),
         timeout: _propTypes2.default.oneOfType([_propTypes2.default.oneOf(['none']), _propTypes2.default.number]),
         html: _propTypes2.default.bool,
+        preserveContext: _propTypes2.default.bool,
         onClose: _propTypes2.default.func,
         onShow: _propTypes2.default.func,
         customFields: _propTypes2.default.object,

@@ -33,7 +33,21 @@
         };
     }
 
-    var getAlertData = function getAlertData(sAlertPosition) {
+    var _extends = Object.assign || function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+            var source = arguments[i];
+
+            for (var key in source) {
+                if (Object.prototype.hasOwnProperty.call(source, key)) {
+                    target[key] = source[key];
+                }
+            }
+        }
+
+        return target;
+    };
+
+    var getAlertData = function getAlertData(sAlertPosition, parentComponent) {
         var positionTop = 0;
         var positionBottom = 0;
         var padding = 0;
@@ -73,6 +87,7 @@
         var aHtml = void 0;
         var aCustomFields = void 0;
         var aPosition = void 0;
+        var preserveContext = void 0;
 
         var query = {};
         if (sAlertPosition === 'left') {
@@ -107,8 +122,10 @@
             aHtml = _sAlertTools2.default.returnFirstDefined(alert.html, sAlertGlobalConfig.html);
             aCustomFields = _sAlertTools2.default.returnFirstDefined(alert.customFields, sAlertGlobalConfig.customFields);
             aPosition = _sAlertTools2.default.returnFirstDefined(alert.position, sAlertGlobalConfig.position);
+            preserveContext = _sAlertTools2.default.returnFirstDefined(alert.preserveContext, sAlertGlobalConfig.preserveContext);
             positionTypeTop = aPosition && /top/g.test(aPosition);
             positionTypeBottom = aPosition && /bottom/g.test(aPosition);
+
             if (aStack) {
                 // checking alert box height - needed to calculate position
                 docElement = document.createElement('div');
@@ -129,7 +146,14 @@
                     contentTemplate: aContentTemplate,
                     customFields: aCustomFields
                 });
-                var reactComponent = _reactDom2.default.render(reactElement, docElement);
+
+                var reactComponent = void 0;
+
+                if (preserveContext) {
+                    reactComponent = _reactDom2.default.unstable_renderSubtreeIntoContainer(parentComponent, reactElement, docElement);
+                } else {
+                    reactComponent = _reactDom2.default.render(reactElement, docElement);
+                }
 
                 document.body.appendChild(docElement);
                 sAlertBoxHeight = parseInt(getComputedStyle(_reactDom2.default.findDOMNode(reactComponent))['height']);
@@ -146,13 +170,13 @@
                 if (sAlertPosition === 'right') {
                     style = style + 'right: ' + (aStack.spacing || parseInt(sAlertComputedStyle.right)) + 'px;';
                 }
-                alerts = Object.assign({}, alert, { boxPosition: style });
+                alerts = _extends({}, alert, { boxPosition: style });
                 _reactDom2.default.unmountComponentAtNode(docElement);
                 docElement.parentNode.removeChild(docElement);
             } else if (aOffset && positionTypeTop) {
-                alerts = Object.assign({}, alert, { boxPosition: 'top: ' + parseInt(aOffset) + 'px;' });
+                alerts = _extends({}, alert, { boxPosition: 'top: ' + parseInt(aOffset) + 'px;' });
             } else if (aOffset && positionTypeBottom) {
-                alerts = Object.assign({}, alert, { boxPosition: 'bottom: ' + parseInt(aOffset) + 'px;' });
+                alerts = _extends({}, alert, { boxPosition: 'bottom: ' + parseInt(aOffset) + 'px;' });
             } else {
                 alerts = alert;
             }

@@ -67,11 +67,24 @@ require('react-s-alert/dist/s-alert-css-effects/jelly.css');
 require('react-s-alert/dist/s-alert-css-effects/stackslide.css');
 ```
 
+CDN:
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-default.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/bouncyflip.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/flip.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/genie.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/jelly.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/scale.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/slide.css
+- https://cdn.jsdelivr.net/npm/react-s-alert@1.4.1/dist/s-alert-css-effects/stackslide.css
+
+(you can change versions in URL if needed)
+
+
 You can also copy the files and include it another way in your app. It depends on your workflow.
 
 **If you are using CSS Modules for now you need to import these files globally.** (You can check the demo website Webpack config file).
 
-### 4. Place sAlert component in you main app component
+### 4. Place sAlert component in your main app component
 
 You need to place the main sAlert container. The best place for it is at the end of your main app component. For Example:
 
@@ -402,7 +415,31 @@ Possible 'beep' values:
 - **(Object)**
     - {info: '/path/file.mp3', error: '/path/file.mp3', warning: '/path/file.mp3', success: '/path/file.mp3'}
 
-##### 7. `onShow`
+##### 7. `preserveContext`
+Makes sure that your Alert always has the parent's context.
+It is needed because the Alert's height, which is needed for calculating the position of each element in the stack, is measured by directly mounting an Alert into DOM by using `ReactDOM.render`. If you want to include any custom JSX inside your Alert, e.g. for  `Material UI`, which uses context for passing theme configuration, you will need this option to be set to **true**.
+
+This options enables the usage of the new `ReactDOM.unstable_renderSubtreeIntoContainer` function, which works exactly the same as `ReactDOM.render`, but keeps the context from the parent's component. Even though this option is named as "unstable", it works perfectly fine.
+
+Possible preserveContext values:
+
+- **true** or **false** (Defaults to **false**)
+
+Example:
+
+In method call:
+```javascript
+Alert.success('Message...', {
+    preserveContext: true
+});
+```
+
+In global config:
+```javascript
+<Alert preserveContext />
+```
+
+##### 8. `onShow`
 
 Execute a callback function. onShow will fire the function when the alert appears.
 
@@ -426,7 +463,7 @@ Possible 'onShow' values:
 
 - **(Function)**
 
-##### 8. `onClose`
+##### 9. `onClose`
 
 Execute a callback function.  Will fire the function when the alert is closed.
 
@@ -450,7 +487,7 @@ Possible 'onClose' values:
 
 - **(Function)**
 
-##### 9. `customFields`
+##### 10. `customFields`
 
 You can pass a customFields object for your custom content template component. You need to prepare the component to be able to display customFields values. You'll read more about it below.
 
@@ -514,6 +551,9 @@ class MyCustomContentTemplate extends React.Component {
             <div className={this.props.classNames} id={this.props.id} style={this.props.styles}>
                 <div className='s-alert-box-inner'>
                     {this.props.message}
+
+                    {/* use this api to customize alert style */}
+                    {this.props.condition}
                 </div>
                 <h3>{this.props.customFields.customerName}</h3>
                 <button onClick={this.handleConfirm.bind(this)}>Confirm</button>
