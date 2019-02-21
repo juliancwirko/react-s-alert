@@ -1,3 +1,6 @@
+**This lib is no longer maintained. It needs major adjustments and rewrites. I hope I'll find some time for it in the future. Sorry.**
+
+
 # React sAlert component
 
 sAlert is a React component which provides alerts or notifications with rich configuration possibilities.
