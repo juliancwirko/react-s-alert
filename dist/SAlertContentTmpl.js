@@ -106,6 +106,7 @@
     SAlertContentTmpl.propTypes = {
         id: _propTypes2.default.string.isRequired,
         classNames: _propTypes2.default.string.isRequired,
+        condition: _propTypes2.default.string.isRequired,
         styles: _propTypes2.default.object.isRequired,
         message: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]).isRequired,
         handleClose: _propTypes2.default.func.isRequired,
