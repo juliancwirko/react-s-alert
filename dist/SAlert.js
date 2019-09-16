@@ -141,12 +141,12 @@
                     requestAnimationFrame(function () {
                         return requestAnimationFrame(function () {
                             var length = void 0;
-                            storeStateRight = (0, _sAlertDataPrep2.default)('right', _this2) || [];
+                            storeStateRight = (0, _sAlertDataPrep2.default)('right') || [];
                             length = storeStateRight.length;
                             if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
                                 var id = storeStateRight[0].id;
                                 _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
-                                storeStateRight = (0, _sAlertDataPrep2.default)('right', _this2) || [];
+                                storeStateRight = (0, _sAlertDataPrep2.default)('right') || [];
                             }
                             _this2.setState({ dataRight: storeStateRight });
                         });
@@ -158,12 +158,12 @@
                     requestAnimationFrame(function () {
                         return requestAnimationFrame(function () {
                             var length = void 0;
-                            storeStateLeft = (0, _sAlertDataPrep2.default)('left', _this2) || [];
+                            storeStateLeft = (0, _sAlertDataPrep2.default)('left') || [];
                             length = storeStateLeft.length;
                             if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
                                 var id = storeStateLeft[0].id;
                                 _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
-                                storeStateLeft = (0, _sAlertDataPrep2.default)('left', _this2) || [];
+                                storeStateLeft = (0, _sAlertDataPrep2.default)('left') || [];
                             }
                             _this2.setState({ dataLeft: storeStateLeft });
                         });
@@ -175,12 +175,12 @@
                     requestAnimationFrame(function () {
                         return requestAnimationFrame(function () {
                             var length = void 0;
-                            storeStateTop = (0, _sAlertDataPrep2.default)('full-top', _this2) || [];
+                            storeStateTop = (0, _sAlertDataPrep2.default)('full-top') || [];
                             length = storeStateTop.length;
                             if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
                                 var id = storeStateTop[0].id;
                                 _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
-                                storeStateTop = (0, _sAlertDataPrep2.default)('full-top', _this2) || [];
+                                storeStateTop = (0, _sAlertDataPrep2.default)('full-top') || [];
                             }
                             _this2.setState({ dataTop: storeStateTop });
                         });
@@ -192,12 +192,12 @@
                     requestAnimationFrame(function () {
                         return requestAnimationFrame(function () {
                             var length = void 0;
-                            storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom', _this2) || [];
+                            storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom') || [];
                             length = storeStateBottom.length;
                             if (_this2.props.stack && _this2.props.stack.limit && length > _this2.props.stack.limit) {
                                 var id = storeStateBottom[0].id;
                                 _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });
-                                storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom', _this2) || [];
+                                storeStateBottom = (0, _sAlertDataPrep2.default)('full-bottom') || [];
                             }
                             _this2.setState({ dataBottom: storeStateBottom });
                         });
@@ -214,8 +214,7 @@
                     stack: this.props.stack,
                     html: this.props.html,
                     customFields: this.props.customFields,
-                    position: this.props.position || 'top-right',
-                    preserveContext: this.props.preserveContext || false
+                    position: this.props.position || 'top-right'
                 };
                 _sAlertTools2.default.setGlobalConfig(globalConfig);
             }
@@ -248,7 +247,6 @@
                     var onShow = _sAlertTools2.default.returnFirstDefined(alert.onShow, _this3.props.onShow);
                     var customFields = _sAlertTools2.default.returnFirstDefined(alert.customFields, _this3.props.customFields);
                     var contentTemplate = _this3.props.contentTemplate;
-
                     return _react2.default.createElement(_SAlertContent2.default, {
                         key: customKey,
                         id: id,
@@ -322,7 +320,6 @@
         beep: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.bool]),
         timeout: _propTypes2.default.oneOfType([_propTypes2.default.oneOf(['none']), _propTypes2.default.number]),
         html: _propTypes2.default.bool,
-        preserveContext: _propTypes2.default.bool,
         onClose: _propTypes2.default.func,
         onShow: _propTypes2.default.func,
         customFields: _propTypes2.default.object,
