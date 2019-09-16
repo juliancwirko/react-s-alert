@@ -143,7 +143,7 @@
                     contentTemplate: aContentTemplate,
                     customFields: aCustomFields
                 });
-                var reactComponent = _reactDom2.default.render(reactElement, docElement);
+                var reactComponent = _reactDom2.default.createPortal(reactElement, docElement);
 
                 document.body.appendChild(docElement);
                 sAlertBoxHeight = parseInt(getComputedStyle(_reactDom2.default.findDOMNode(reactComponent))['height']);
