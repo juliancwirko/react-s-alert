@@ -63,7 +63,7 @@
             });
             return collectionOfType && collectionOfType[0].id === objId;
         };
-        var positionFunc = function positionFunc(position, positionType, alert, docElement, sAlertBoxHeight, reactComponent) {
+        var positionFunc = function positionFunc(position, positionType, alert, sAlertBoxHeight, reactComponent) {
             padding = aStack.spacing || parseInt(getComputedStyle(_reactDom2.default.findDOMNode(reactComponent))[positionType]);
             if (checkFirst(aPosition, alert.id) && aOffset) {
                 position = 0;
@@ -148,10 +148,10 @@
                 document.body.appendChild(docElement);
                 sAlertBoxHeight = parseInt(getComputedStyle(_reactDom2.default.findDOMNode(reactComponent))['height']);
                 if (positionTypeTop) {
-                    positionTop = positionFunc(positionTop, 'top', alert, docElement, sAlertBoxHeight, reactComponent);
+                    positionTop = positionFunc(positionTop, 'top', alert, sAlertBoxHeight, reactComponent);
                 }
                 if (positionTypeBottom) {
-                    positionBottom = positionFunc(positionBottom, 'bottom', alert, docElement, sAlertBoxHeight, reactComponent);
+                    positionBottom = positionFunc(positionBottom, 'bottom', alert, sAlertBoxHeight, reactComponent);
                 }
                 var sAlertComputedStyle = getComputedStyle(_reactDom2.default.findDOMNode(reactComponent));
                 if (sAlertPosition === 'left') {
