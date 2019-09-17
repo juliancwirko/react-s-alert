@@ -95,10 +95,7 @@
         function SAlertContent(props) {
             _classCallCheck(this, SAlertContent);
 
-            var _this = _possibleConstructorReturn(this, (SAlertContent.__proto__ || Object.getPrototypeOf(SAlertContent)).call(this, props));
-
-            _this.currentAlertElemWrapper = _react2.default.createRef();
-            return _this;
+            return _possibleConstructorReturn(this, (SAlertContent.__proto__ || Object.getPrototypeOf(SAlertContent)).call(this, props));
         }
 
         _createClass(SAlertContent, [{
@@ -106,7 +103,7 @@
             value: function handleCloseAlert() {
                 var closingTimeout = void 0;
                 var alertId = this.props.id;
-                var currentAlertElem = this.currentAlertElemWrapper.current;
+                var currentAlertElem = _reactDom2.default.findDOMNode(this);
                 var animationClose = function animationClose() {
                     currentAlertElem.style.display = 'none';
                     _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: alertId } });
@@ -128,10 +125,8 @@
                 this.alertAudio && this.alertAudio.load();
             }
         }, {
-            key: 'componentDidMount',
-            value: function componentDidMount() {
-                var _this2 = this;
-
+            key: 'componentWillMount',
+            value: function componentWillMount() {
                 var beep = this.props.beep;
                 var condition = this.props.condition;
                 if (beep && typeof beep === 'string') {
@@ -159,6 +154,12 @@
                     this.alertAudio.load();
                     this.alertAudio.play();
                 }
+            }
+        }, {
+            key: 'componentDidMount',
+            value: function componentDidMount() {
+                var _this2 = this;
+
                 if (typeof this.props.timeout === 'number') {
                     this.closeTimer = setTimeout(function () {
                         _this2.handleCloseAlert();
@@ -189,9 +190,8 @@
                 var contentTemplate = this.props.contentTemplate || _SAlertContentTmpl2.default;
                 var customFields = this.props.customFields || {};
                 var condition = this.props.condition;
-                var ref = this.currentAlertElemWrapper;
 
-                return _react2.default.createElement(contentTemplate, { ref: ref, classNames: classNames, id: id, styles: styles, message: message, handleClose: handleClose, customFields: customFields, condition: condition });
+                return _react2.default.createElement(contentTemplate, { classNames: classNames, id: id, styles: styles, message: message, handleClose: handleClose, customFields: customFields, condition: condition });
             }
         }]);
 
