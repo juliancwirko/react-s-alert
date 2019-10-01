@@ -231,7 +231,7 @@
             value: function render() {
                 var _this3 = this;
 
-                var mapFunc = function mapFunc(alert, index) {
+                var mapFunc = function mapFunc(alert) {
                     var customKey = 'alert-key-' + alert.id + '-' + alert.position;
                     var id = alert.id;
                     var condition = _sAlertTools2.default.returnFirstDefined(alert.condition, 'info');
@@ -263,17 +263,53 @@
                         onShow: onShow,
                         contentTemplate: contentTemplate });
                 };
-                var sAlertElemsRight = this.state.dataRight.map(mapFunc);
-                var sAlertElemsLeft = this.state.dataLeft.map(mapFunc);
+                var sAlertElemsTopRight = this.state.dataRight.filter(function (data) {
+                    return !data.position || data.position === 'top-right';
+                }).map(mapFunc);
+                var sAlertElemsBottomRight = this.state.dataRight.filter(function (data) {
+                    return data.position === 'bottom-left';
+                }).map(mapFunc);
+                var sAlertElemsTopLeft = this.state.dataLeft.filter(function (data) {
+                    return data.position === 'top-left';
+                }).map(mapFunc);
+                var sAlertElemsBottomLeft = this.state.dataLeft.filter(function (data) {
+                    return data.position === 'bottom-left';
+                }).map(mapFunc);
                 var sAlertElemsTop = this.state.dataTop.map(mapFunc);
                 var sAlertElemsBottom = this.state.dataBottom.map(mapFunc);
                 return _react2.default.createElement(
                     'div',
                     { className: 's-alert-wrapper' },
-                    sAlertElemsRight,
-                    sAlertElemsLeft,
-                    sAlertElemsTop,
-                    sAlertElemsBottom
+                    _react2.default.createElement(
+                        'div',
+                        { className: 's-alert-position-wrapper s-alert-top-right-wrapper' },
+                        sAlertElemsTopRight
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 's-alert-position-wrapper s-alert-bottom-right-wrapper' },
+                        sAlertElemsBottomRight
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 's-alert-position-wrapper s-alert-top-left-wrapper' },
+                        sAlertElemsTopLeft
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 's-alert-position-wrapper s-alert-bottom-left-wrapper' },
+                        sAlertElemsBottomLeft
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 's-alert-position-wrapper s-alert-top-wrapper' },
+                        sAlertElemsTop
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 's-alert-position-wrapper s-alert-bottom-wrapper' },
+                        sAlertElemsBottom
+                    )
                 );
             }
         }], [{

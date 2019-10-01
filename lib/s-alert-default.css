@@ -6,11 +6,10 @@
 }
 
 .s-alert-box {
-    position: fixed;
+    position: relative;
     background: rgba(42,45,50,0.85);
     padding: 22px;
     line-height: 1.4;
-    z-index: 9999;
     pointer-events: none;
     color: rgba(250,251,255,0.95);
     font-size: 100%;
@@ -18,6 +17,12 @@
     max-width: 300px;
     -webkit-transition: top .4s, bottom .4s;
     transition: top .4s, bottom .4s;
+}
+
+.s-alert-position-wrapper {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
 }
 
 .s-alert-box.s-alert-show {
@@ -88,47 +93,74 @@
     transform: translate(-50%,-50%) rotate(-45deg);
 }
 
+/* position wrappers */
+.s-alert-top-left-wrapper,
+.s-alert-bottom-left-wrapper {
+    left: 0;
+}
+
+.s-alert-top-right-wrapper,
+.s-alert-bottom-right-wrapper {
+    right: 0;
+}
+
+.s-alert-top-left-wrapper,
+.s-alert-top-right-wrapper {
+    top: 30px;
+    bottom: auto;
+}
+
+.s-alert-bottom-left-wrapper,
+.s-alert-bottom-right-wrapper {
+    top: auto;
+    bottom: 30px;
+}
+
+.s-alert-bottom-wrapper {
+    bottom: 0;
+    top: auto;
+}
+
+.s-alert-top-wrapper {
+    bottom: auto;
+    top: 0;
+}
+
 /* positions */
 
-.s-alert-bottom-left {
-    top: auto;
-    right: auto;
-    bottom: 30px;
-    left: 30px;
-}
-.s-alert-top-left {
-    top: 30px;
-    right: auto;
-    bottom: auto;
-    left: 30px;
-}
+.s-alert-top-left,
 .s-alert-top-right {
-    top: 30px;
+    margin-bottom: 30px;
+}
+
+.s-alert-bottom-left,
+.s-alert-bottom-right {
+    margin-top: 30px;
+}
+
+.s-alert-top-left,
+.s-alert-bottom-left {
+    right: auto;
+    left: 30px;
+}
+.s-alert-top-right,
+.s-alert-bottom-right {
     right: 30px;
-    bottom: auto;
     left: auto;
 }
-.s-alert-bottom-right { /*default*/
-    top: auto;
-    right: 30px;
-    bottom: 30px;
-    left: auto;
-}
+.s-alert-bottom-wrapper,
 .s-alert-bottom {
     width: 100%;
     max-width: 100%;
-    bottom: 0;
     left: 0;
     right: 0;
-    top: auto;
 }
+.s-alert-top-wrapper,
 .s-alert-top {
     width: 100%;
     max-width: 100%;
-    top: 0;
     left: 0;
     right: 0;
-    bottom: auto;
 }
 
 /* conditions */
@@ -154,10 +186,4 @@
 [class*=" s-alert-effect-"].s-alert-hide {
     -webkit-animation-direction: reverse;
     animation-direction: reverse;
-}
-
-/* height measurement helper */
-.s-alert-box-height {
-    visibility: hidden;
-    position: fixed;
 }
